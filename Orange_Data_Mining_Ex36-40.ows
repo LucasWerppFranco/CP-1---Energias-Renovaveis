@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='utf-8'?>
+<scheme version="2.0" title="" description="">
+	<nodes>
+		<node id="0" name="CSV File Import" qualified_name="Orange.widgets.data.owcsvimport.OWCSVFileImport" project_name="Orange3" version="" title="CSV File Import (Dataset Individual Household Electric Power)" position="(817.0, 228.0)" />
+		<node id="1" name="Data Table" qualified_name="Orange.widgets.data.owtable.OWTable" project_name="Orange3" version="" title="Data Table                   (Dataset Completo)" position="(246.0, -23.0)" />
+		<node id="2" name="Data Sampler" qualified_name="Orange.widgets.data.owdatasampler.OWDataSampler" project_name="Orange3" version="" title="Data Sampler (Obtendo amostra de 1%)" position="(29.0, 429.0)" />
+		<node id="3" name="Distributions" qualified_name="Orange.widgets.visualize.owdistributions.OWDistributions" project_name="Orange3" version="" title="Distributions (Gráfico da Amostra)" position="(179.0, 429.0)" />
+		<node id="4" name="Select Rows" qualified_name="Orange.widgets.data.owselectrows.OWSelectRows" project_name="Orange3" version="" title="Select Rows (Removendo Missing Values da Variável Global_active_power)" position="(356.0, 337.0)" />
+		<node id="5" name="Distributions" qualified_name="Orange.widgets.visualize.owdistributions.OWDistributions" project_name="Orange3" version="" title="Distributions (Gráfico completo)" position="(684.0, 411.0)" />
+		<node id="6" name="Scatter Plot" qualified_name="Orange.widgets.visualize.owscatterplot.OWScatterPlot" project_name="Orange3" version="" title="Scatter Plot" position="(1242.0, -48.0)" />
+		<node id="7" name="Select Rows" qualified_name="Orange.widgets.data.owselectrows.OWSelectRows" project_name="Orange3" version="" title="Select Rows (Removendo Missing Values das Variáveis Voltage e Global_intensity)" position="(991.0, 121.0)" />
+		<node id="8" name="k-Means" qualified_name="Orange.widgets.unsupervised.owkmeans.OWKMeans" project_name="Orange3" version="" title="k-Means" position="(1280.0, 329.0)" />
+		<node id="9" name="Select Rows" qualified_name="Orange.widgets.data.owselectrows.OWSelectRows" project_name="Orange3" version="" title="Select Rows (Removendo Missing Values das Variáveis Sub_metering_1,2,3)" position="(1003.0, 356.0)" />
+		<node id="10" name="Scatter Plot" qualified_name="Orange.widgets.visualize.owscatterplot.OWScatterPlot" project_name="Orange3" version="" title="Scatter Plot (Visualizando grupos Sub_metering)" position="(1428.0, 330.0)" />
+	</nodes>
+	<links>
+		<link id="0" source_node_id="0" sink_node_id="1" source_channel="Data" sink_channel="Data" enabled="true" source_channel_id="data" sink_channel_id="data" />
+		<link id="1" source_node_id="2" sink_node_id="3" source_channel="Data Sample" sink_channel="Data" enabled="true" source_channel_id="data_sample" sink_channel_id="data" />
+		<link id="2" source_node_id="0" sink_node_id="4" source_channel="Data" sink_channel="Data" enabled="true" source_channel_id="data" sink_channel_id="data" />
+		<link id="3" source_node_id="4" sink_node_id="2" source_channel="Matching Data" sink_channel="Data" enabled="true" source_channel_id="matching_data" sink_channel_id="data" />
+		<link id="4" source_node_id="4" sink_node_id="5" source_channel="Matching Data" sink_channel="Data" enabled="true" source_channel_id="matching_data" sink_channel_id="data" />
+		<link id="5" source_node_id="0" sink_node_id="7" source_channel="Data" sink_channel="Data" enabled="true" source_channel_id="data" sink_channel_id="data" />
+		<link id="6" source_node_id="7" sink_node_id="6" source_channel="Matching Data" sink_channel="Data" enabled="true" source_channel_id="matching_data" sink_channel_id="data" />
+		<link id="7" source_node_id="0" sink_node_id="9" source_channel="Data" sink_channel="Data" enabled="true" source_channel_id="data" sink_channel_id="data" />
+		<link id="8" source_node_id="9" sink_node_id="8" source_channel="Matching Data" sink_channel="Data" enabled="true" source_channel_id="matching_data" sink_channel_id="data" />
+		<link id="9" source_node_id="8" sink_node_id="10" source_channel="Data" sink_channel="Data" enabled="true" source_channel_id="annotated_data" sink_channel_id="data" />
+	</links>
+	<annotations>
+		<text id="0" type="text/plain" rect="(145.0, 117.0, 222.0, 55.0)" font-family="Segoe UI" font-size="16">Quantas variáveis e registros aparecem?</text>
+		<arrow id="1" start="(246.99999999999994, 46.99999999999998)" end="(245.99999999999994, 107.99999999999997)" fill="#C1272D" />
+		<text id="2" type="text/plain" rect="(-7.0, 184.0, 544.0, 96.0)" font-family="Segoe UI" font-size="16">- Registros (Instances): 2075259 --&gt; número de linhas (observações) do data set.
+- Variáveis (Features): 9 --&gt; número de colunas (atributos) que cada registro possui.</text>
+		<text id="3" type="text/plain" rect="(112.0, -111.0, 267.0, 46.0)" font-family="Segoe UI" font-size="16">36) Importação e visualização inicial</text>
+		<text id="4" type="text/plain" rect="(-83.0, 330.0, 256.0, 32.0)" font-family="Segoe UI" font-size="16">37) Amostragem de Dados (1%)</text>
+		<text id="5" type="text/plain" rect="(-184.0, 557.0, 465.0, 54.0)" font-family="Segoe UI" font-size="16">A distribuição de Global_active_power na amostra é semelhante à base completa?</text>
+		<arrow id="6" start="(33.0, 506.0)" end="(34.0, 553.0)" fill="#C1272D" />
+		<text id="7" type="text/plain" rect="(-312.0, 623.0, 763.0, 75.0)" font-family="Segoe UI" font-size="16">A comparação das distribuições mostra que, em Global_active_power = 0, a frequência na base completa é de cerca de 90.000 ocorrências, enquanto na amostra de 1% é de aproximadamente 9.000. Essa relação confirma que a amostragem preserva a proporção dos dados originais, mantendo a mesma distribuição.</text>
+		<text id="8" type="text/plain" rect="(566.0, 334.0, 219.0, 33.0)" font-family="Segoe UI" font-size="16">38) Distribuição de Consumo</text>
+		<text id="9" type="text/plain" rect="(523.0, 548.0, 420.0, 50.0)" font-family="Segoe UI" font-size="16">O consumo é concentrado em valores baixos ou há muitos registros de alto consumo?</text>
+		<arrow id="10" start="(692.0, 487.99999999999994)" end="(695.0, 538.0)" fill="#C1272D" />
+		<text id="11" type="text/plain" rect="(473.0, 626.0, 653.0, 75.0)" font-family="Segoe UI" font-size="16">A distribuição do Global_active_power mostra que o consumo está concentrado em valores baixos, com grande número de registros próximos de 0-2kW. Há relativamente poucos registros de alto consumo indicando que valores elevados são casos esporádicos.</text>
+		<text id="12" type="text/plain" rect="(446.0, 625.0, 20.0, 74.0)" font-family="Segoe UI" font-size="16">|
+|
+|
+</text>
+		<text id="13" type="text/plain" rect="(1106.0, -130.0, 264.0, 29.0)" font-family="Segoe UI" font-size="16">39) Relação entre variáveis elétricas</text>
+		<text id="14" type="text/plain" rect="(1159.0, 64.0, 184.0, 33.0)" font-family="Segoe UI" font-size="16">Existe correlação visível?</text>
+		<arrow id="15" start="(1243.0, 12.999999999999996)" end="(1245.0, 58.0)" fill="#C1272D" />
+		<text id="16" type="text/plain" rect="(1095.0, 102.0, 369.0, 174.0)" font-family="Segoe UI" font-size="16">Sim, existe correlação visível entre Voltage e Global_intensity. Observa-se uma relação inversa: em tensões mais baixas, a intensidade é mais alta e dispersa, enquanto em tensões mais elevadas a intensidade se conecentra em valores menores.</text>
+		<text id="17" type="text/plain" rect="(1170.0, 255.0, 213.0, 35.0)" font-family="Segoe UI" font-size="16">40) Clustering com K-Means</text>
+		<text id="18" type="text/plain" rect="(1226.0, 453.0, 301.0, 55.0)" font-family="Segoe UI" font-size="16">Cada cluster representa um padrão distinto de consumo doméstico?</text>
+		<arrow id="19" start="(1348.0, 391.0)" end="(1351.0, 444.0)" fill="#C1272D" />
+		<text id="20" type="text/plain" rect="(1140.0, 512.0, 504.0, 138.0)" font-family="Segoe UI" font-size="16">Sim, cada cluster representa um padrão distinto de consumo doméstico. O algoritmo K-Means separou os registros em três grupos de acordo com a predominância de consumo em Sub_metering_1, Sub_metering_2 e Sub_metering_3, evidenciando perfis diferentes de uso de energia.</text>
+	</annotations>
+	<thumbnail />
+	<node_properties>
+		<properties node_id="0" format="literal">{'_session_items': [], '_session_items_v2': [({'type': 'AbsPath', 'path': 'C:/Users/d4blc/Desktop/household_power_consumption.txt'}, {'encoding': 'utf-8', 'delimiter': ';', 'quotechar': '"', 'doublequote': True, 'skipinitialspace': True, 'quoting': 0, 'columntypes': [{'start': 0, 'stop': 9, 'value': 'Auto'}], 'rowspec': [{'start': 0, 'stop': 1, 'value': 'Header'}], 'decimal_separator': '.', 'group_separator': ''})], 'compatibility_mode': False, 'controlAreaVisible': True, 'dialog_state': {'directory': 'C:/Users/d4blc/Desktop', 'filter': 'Text - comma separated (*.csv, *)'}, 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x03\x00\x00\x00\x00\x02\x1f\x00\x00\x00\xc6\x00\x00\x037\x00\x00\x021\x00\x00\x02 \x00\x00\x00\xe5\x00\x00\x036\x00\x00\x020\x00\x00\x00\x00\x00\x00\x00\x00\x05V\x00\x00\x02 \x00\x00\x00\xe5\x00\x00\x036\x00\x00\x020', '__version__': 3}</properties>
+		<properties node_id="1" format="literal">{'auto_commit': True, 'color_by_class': True, 'controlAreaVisible': True, 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x03\x00\x00\x00\x00\x01\x1a\x00\x00\x00g\x00\x00\x04;\x00\x00\x02z\x00\x00\x01\x1b\x00\x00\x00\x86\x00\x00\x04:\x00\x00\x02y\x00\x00\x00\x00\x00\x00\x00\x00\x05V\x00\x00\x01\x1b\x00\x00\x00\x86\x00\x00\x04:\x00\x00\x02y', 'select_rows': True, 'show_attribute_labels': True, 'show_distributions': False, 'stored_selection': {'rows': [], 'columns': []}, 'stored_sort': [], '__version__': 1}</properties>
+		<properties node_id="2" format="literal">{'compatibility_mode': False, 'controlAreaVisible': True, 'number_of_folds': 10, 'replacement': False, 'sampleSizeNumber': 1, 'sampleSizePercentage': 1, 'sampleSizeSqlPercentage': 0.1, 'sampleSizeSqlTime': 1, 'sampling_type': 0, 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x03\x00\x00\x00\x00\t9\x00\x00\x01\r\x00\x00\n!\x00\x00\x02\xd2\x00\x00\t:\x00\x00\x01,\x00\x00\n \x00\x00\x02\xd1\x00\x00\x00\x01\x00\x00\x00\x00\x07\x80\x00\x00\t:\x00\x00\x01,\x00\x00\n \x00\x00\x02\xd1', 'selectedFold': 1, 'sql_dl': False, 'stratify': False, 'use_seed': True, '__version__': 2}</properties>
+		<properties node_id="3" format="pickle">gASVagIAAAAAAAB9lCiMCmF1dG9fYXBwbHmUiIwSY29udHJvbEFyZWFWaXNpYmxllIiMEGN1bXVs
+YXRpdmVfZGlzdHKUiYwTZml0dGVkX2Rpc3RyaWJ1dGlvbpRLAIwJaGlkZV9iYXJzlImMDWtkZV9z
+bW9vdGhpbmeUSwqME3NhdmVkV2lkZ2V0R2VvbWV0cnmUQ0IB2dDLAAMAAAAAB0sAAADhAAAK4AAA
+AzgAAAdMAAABAAAACt8AAAM3AAAAAQAAAAAHgAAAB0wAAAEAAAAK3wAAAzeUjApzaG93X3Byb2Jz
+lImMDHNvcnRfYnlfZnJlcZSJjA9zdGFja2VkX2NvbHVtbnOUiYwLX192ZXJzaW9uX1+USwKMEGNv
+bnRleHRfc2V0dGluZ3OUXZSMFW9yYW5nZXdpZGdldC5zZXR0aW5nc5SMB0NvbnRleHSUk5QpgZR9
+lCiMBnZhbHVlc5R9lCiMBGN2YXKUTkr+////hpSMDm51bWJlcl9vZl9iaW5zlEsCSv7///+GlIwN
+c2VsZWN0ZWRfYmFyc5SPlEr+////hpSMA3ZhcpSME0dsb2JhbF9hY3RpdmVfcG93ZXKUS2aGlGgM
+SwJ1jAphdHRyaWJ1dGVzlH2UKIwERGF0ZZRLBIwEVGltZZRLBGgeSwKMFUdsb2JhbF9yZWFjdGl2
+ZV9wb3dlcpRLAowHVm9sdGFnZZRLAowQR2xvYmFsX2ludGVuc2l0eZRLAowOU3ViX21ldGVyaW5n
+XzGUSwKMDlN1Yl9tZXRlcmluZ18ylEsCjA5TdWJfbWV0ZXJpbmdfM5RLAnWMBW1ldGFzlH2UdWJh
+dS4=
+</properties>
+		<properties node_id="4" format="pickle">gASV9AEAAAAAAAB9lCiMC2F1dG9fY29tbWl0lIiMEmNvbnRyb2xBcmVhVmlzaWJsZZSIjBBwdXJn
+ZV9hdHRyaWJ1dGVzlImMDXB1cmdlX2NsYXNzZXOUiYwTc2F2ZWRXaWRnZXRHZW9tZXRyeZRDQgHZ
+0MsAAwAAAAAH6QAAATUAAApCAAAC5AAAB+oAAAFUAAAKQQAAAuMAAAABAAAAAAeAAAAH6gAAAVQA
+AApBAAAC45SMEHVwZGF0ZV9vbl9jaGFuZ2WUiIwLX192ZXJzaW9uX1+USwKMEGNvbnRleHRfc2V0
+dGluZ3OUXZSMFW9yYW5nZXdpZGdldC5zZXR0aW5nc5SMB0NvbnRleHSUk5QpgZR9lCiMBnZhbHVl
+c5R9lCiMCmNvbmRpdGlvbnOUXZQojBNHbG9iYWxfYWN0aXZlX3Bvd2VylEsCSwgpdJRhaAhLAnWM
+CmF0dHJpYnV0ZXOUfZQojAREYXRllEsEjARUaW1llEsEaBRLAowVR2xvYmFsX3JlYWN0aXZlX3Bv
+d2VylEsCjAdWb2x0YWdllEsCjBBHbG9iYWxfaW50ZW5zaXR5lEsCjA5TdWJfbWV0ZXJpbmdfMZRL
+AowOU3ViX21ldGVyaW5nXzKUSwKMDlN1Yl9tZXRlcmluZ18zlEsCdYwFbWV0YXOUfZR1YmF1Lg==
+</properties>
+		<properties node_id="5" format="pickle">gASVagIAAAAAAAB9lCiMCmF1dG9fYXBwbHmUiIwSY29udHJvbEFyZWFWaXNpYmxllIiMEGN1bXVs
+YXRpdmVfZGlzdHKUiYwTZml0dGVkX2Rpc3RyaWJ1dGlvbpRLAIwJaGlkZV9iYXJzlImMDWtkZV9z
+bW9vdGhpbmeUSwqME3NhdmVkV2lkZ2V0R2VvbWV0cnmUQ0IB2dDLAAMAAAAAB0sAAADhAAAK4AAA
+AzgAAAdMAAABAAAACt8AAAM3AAAAAQAAAAAHgAAAB0wAAAEAAAAK3wAAAzeUjApzaG93X3Byb2Jz
+lImMDHNvcnRfYnlfZnJlcZSJjA9zdGFja2VkX2NvbHVtbnOUiYwLX192ZXJzaW9uX1+USwKMEGNv
+bnRleHRfc2V0dGluZ3OUXZSMFW9yYW5nZXdpZGdldC5zZXR0aW5nc5SMB0NvbnRleHSUk5QpgZR9
+lCiMBnZhbHVlc5R9lCiMBGN2YXKUTkr+////hpSMDm51bWJlcl9vZl9iaW5zlEsBSv7///+GlIwN
+c2VsZWN0ZWRfYmFyc5SPlEr+////hpSMA3ZhcpSME0dsb2JhbF9hY3RpdmVfcG93ZXKUS2aGlGgM
+SwJ1jAphdHRyaWJ1dGVzlH2UKIwERGF0ZZRLBIwEVGltZZRLBGgeSwKMFUdsb2JhbF9yZWFjdGl2
+ZV9wb3dlcpRLAowHVm9sdGFnZZRLAowQR2xvYmFsX2ludGVuc2l0eZRLAowOU3ViX21ldGVyaW5n
+XzGUSwKMDlN1Yl9tZXRlcmluZ18ylEsCjA5TdWJfbWV0ZXJpbmdfM5RLAnWMBW1ldGFzlH2UdWJh
+dS4=
+</properties>
+		<properties node_id="6" format="pickle">gASVpwMAAAAAAAB9lCiMDWF0dHJfeF9pc19hYnOUiYwNYXR0cl95X2lzX2Fic5SJjAthdXRvX2Nv
+bW1pdJSIjAthdXRvX3NhbXBsZZSIjBJjb250cm9sQXJlYVZpc2libGWUiIwTc2F2ZWRXaWRnZXRH
+ZW9tZXRyeZRDQgHZ0MsAAwAAAAAGxwAAAHwAAAs0AAADXwAABsgAAACbAAALMwAAA14AAAABAAAA
+AAeAAAAGyAAAAJsAAAszAAADXpSMCXNlbGVjdGlvbpROjBF0b29sdGlwX3Nob3dzX2FsbJSIjA92
+aXN1YWxfc2V0dGluZ3OUfZSMBWdyYXBolH2UKIwLYWxwaGFfdmFsdWWUS4CMDWNsYXNzX2RlbnNp
+dHmUiYwRaml0dGVyX2NvbnRpbnVvdXOUiYwLaml0dGVyX3NpemWUSwCME2xhYmVsX29ubHlfc2Vs
+ZWN0ZWSUiYwWb3J0aG9ub3JtYWxfcmVncmVzc2lvbpSJjAtwb2ludF93aWR0aJRLBYwMc2hvd19l
+bGxpcHNllImMCXNob3dfZ3JpZJSJjAtzaG93X2xlZ2VuZJSIjA1zaG93X3JlZ19saW5llIl1jAtf
+X3ZlcnNpb25fX5RLBYwQY29udGV4dF9zZXR0aW5nc5RdlIwVb3Jhbmdld2lkZ2V0LnNldHRpbmdz
+lIwHQ29udGV4dJSTlCmBlH2UKIwGdmFsdWVzlH2UKIwKYXR0cl9jb2xvcpSMB1ZvbHRhZ2WUS2aG
+lIwKYXR0cl9sYWJlbJROSv7///+GlIwKYXR0cl9zaGFwZZROSv7///+GlIwJYXR0cl9zaXpllE5K
+/v///4aUjAZhdHRyX3iUaCRLZoaUjAxhdHRyX3hfbG93ZXKUTkr+////hpSMDGF0dHJfeF91cHBl
+cpROSv7///+GlIwGYXR0cl95lIwQR2xvYmFsX2ludGVuc2l0eZRLZoaUjAxhdHRyX3lfbG93ZXKU
+Tkr+////hpSMDGF0dHJfeV91cHBlcpROSv7///+GlGgMfZRoGUsFdYwKYXR0cmlidXRlc5R9lCiM
+BERhdGWUSwSMBFRpbWWUSwSME0dsb2JhbF9hY3RpdmVfcG93ZXKUSwKMFUdsb2JhbF9yZWFjdGl2
+ZV9wb3dlcpRLAmgkSwJoM0sCjA5TdWJfbWV0ZXJpbmdfMZRLAowOU3ViX21ldGVyaW5nXzKUSwKM
+DlN1Yl9tZXRlcmluZ18zlEsCdYwFbWV0YXOUfZR1YmF1Lg==
+</properties>
+		<properties node_id="7" format="pickle">gASV/wEAAAAAAAB9lCiMC2F1dG9fY29tbWl0lIiMEmNvbnRyb2xBcmVhVmlzaWJsZZSIjBBwdXJn
+ZV9hdHRyaWJ1dGVzlImMDXB1cmdlX2NsYXNzZXOUiYwTc2F2ZWRXaWRnZXRHZW9tZXRyeZRDQgHZ
+0MsAAwAAAAAH6QAAATUAAApCAAAC5AAAB+oAAAFUAAAKQQAAAuMAAAABAAAAAAeAAAAH6gAAAVQA
+AApBAAAC45SMEHVwZGF0ZV9vbl9jaGFuZ2WUiIwLX192ZXJzaW9uX1+USwKMEGNvbnRleHRfc2V0
+dGluZ3OUXZSMFW9yYW5nZXdpZGdldC5zZXR0aW5nc5SMB0NvbnRleHSUk5QpgZR9lCiMBnZhbHVl
+c5R9lCiMCmNvbmRpdGlvbnOUXZQoKIwHVm9sdGFnZZRLAksIKXSUKIwQR2xvYmFsX2ludGVuc2l0
+eZRLAksIKXSUZWgISwJ1jAphdHRyaWJ1dGVzlH2UKIwERGF0ZZRLBIwEVGltZZRLBIwTR2xvYmFs
+X2FjdGl2ZV9wb3dlcpRLAowVR2xvYmFsX3JlYWN0aXZlX3Bvd2VylEsCaBRLAmgWSwKMDlN1Yl9t
+ZXRlcmluZ18xlEsCjA5TdWJfbWV0ZXJpbmdfMpRLAowOU3ViX21ldGVyaW5nXzOUSwJ1jAVtZXRh
+c5R9lHViYXUu
+</properties>
+		<properties node_id="8" format="literal">{'auto_commit': True, 'controlAreaVisible': True, 'k': 3, 'k_from': 2, 'k_to': 8, 'max_iterations': 300, 'n_init': 10, 'normalize': True, 'optimize_k': False, 'savedWidgetGeometry': b"\x01\xd9\xd0\xcb\x00\x03\x00\x00\x00\x00\x08&amp;\x00\x00\x01j\x00\x00\t\xf0\x00\x00\x02\xaf\x00\x00\x08'\x00\x00\x01\x89\x00\x00\t\xef\x00\x00\x02\xae\x00\x00\x00\x01\x00\x00\x00\x00\x07\x80\x00\x00\x08'\x00\x00\x01\x89\x00\x00\t\xef\x00\x00\x02\xae", 'selection': None, 'smart_init': 0, '__version__': 2}</properties>
+		<properties node_id="9" format="pickle">gASVCQIAAAAAAAB9lCiMC2F1dG9fY29tbWl0lIiMEmNvbnRyb2xBcmVhVmlzaWJsZZSIjBBwdXJn
+ZV9hdHRyaWJ1dGVzlImMDXB1cmdlX2NsYXNzZXOUiYwTc2F2ZWRXaWRnZXRHZW9tZXRyeZRDQgHZ
+0MsAAwAAAAAH6QAAATUAAApCAAAC5AAAB+oAAAFUAAAKQQAAAuMAAAABAAAAAAeAAAAH6gAAAVQA
+AApBAAAC45SMEHVwZGF0ZV9vbl9jaGFuZ2WUiIwLX192ZXJzaW9uX1+USwKMEGNvbnRleHRfc2V0
+dGluZ3OUXZSMFW9yYW5nZXdpZGdldC5zZXR0aW5nc5SMB0NvbnRleHSUk5QpgZR9lCiMBnZhbHVl
+c5R9lCiMCmNvbmRpdGlvbnOUXZQoKIwOU3ViX21ldGVyaW5nXzGUSwJLCCl0lCiMDlN1Yl9tZXRl
+cmluZ18ylEsCSwgpdJQojA5TdWJfbWV0ZXJpbmdfM5RLAksIKXSUZWgISwJ1jAphdHRyaWJ1dGVz
+lH2UKIwERGF0ZZRLBIwEVGltZZRLBIwTR2xvYmFsX2FjdGl2ZV9wb3dlcpRLAowVR2xvYmFsX3Jl
+YWN0aXZlX3Bvd2VylEsCjAdWb2x0YWdllEsCjBBHbG9iYWxfaW50ZW5zaXR5lEsCaBRLAmgWSwJo
+GEsCdYwFbWV0YXOUfZR1YmF1Lg==
+</properties>
+		<properties node_id="10" format="pickle">gASVgAMAAAAAAAB9lCiMDWF0dHJfeF9pc19hYnOUiYwNYXR0cl95X2lzX2Fic5SJjAthdXRvX2Nv
+bW1pdJSIjAthdXRvX3NhbXBsZZSIjBJjb250cm9sQXJlYVZpc2libGWUiIwTc2F2ZWRXaWRnZXRH
+ZW9tZXRyeZROjAlzZWxlY3Rpb26UTowRdG9vbHRpcF9zaG93c19hbGyUiIwPdmlzdWFsX3NldHRp
+bmdzlH2UjAVncmFwaJR9lCiMC2FscGhhX3ZhbHVllEuAjA1jbGFzc19kZW5zaXR5lImMEWppdHRl
+cl9jb250aW51b3VzlImMC2ppdHRlcl9zaXpllEsAjBNsYWJlbF9vbmx5X3NlbGVjdGVklImMFm9y
+dGhvbm9ybWFsX3JlZ3Jlc3Npb26UiYwLcG9pbnRfd2lkdGiUSwqMDHNob3dfZWxsaXBzZZSJjAlz
+aG93X2dyaWSUiYwLc2hvd19sZWdlbmSUiIwNc2hvd19yZWdfbGluZZSJdYwLX192ZXJzaW9uX1+U
+SwWMEGNvbnRleHRfc2V0dGluZ3OUXZSMFW9yYW5nZXdpZGdldC5zZXR0aW5nc5SMB0NvbnRleHSU
+k5QpgZR9lCiMBnZhbHVlc5R9lCiMCmF0dHJfY29sb3KUjAdDbHVzdGVylEtlhpSMCmF0dHJfbGFi
+ZWyUTkr+////hpSMCmF0dHJfc2hhcGWUTkr+////hpSMCWF0dHJfc2l6ZZROSv7///+GlIwGYXR0
+cl94lIwOU3ViX21ldGVyaW5nXzGUS2aGlIwMYXR0cl94X2xvd2VylE5K/v///4aUjAxhdHRyX3hf
+dXBwZXKUTkr+////hpSMBmF0dHJfeZSMDlN1Yl9tZXRlcmluZ18ylEtmhpSMDGF0dHJfeV9sb3dl
+cpROSv7///+GlIwMYXR0cl95X3VwcGVylE5K/v///4aUaAt9lGgYSwV1jAphdHRyaWJ1dGVzlH2U
+KIwERGF0ZZRLBIwEVGltZZRLBIwTR2xvYmFsX2FjdGl2ZV9wb3dlcpRLAowVR2xvYmFsX3JlYWN0
+aXZlX3Bvd2VylEsCjAdWb2x0YWdllEsCjBBHbG9iYWxfaW50ZW5zaXR5lEsCaCxLAmgzSwKMDlN1
+Yl9tZXRlcmluZ18zlEsCdYwFbWV0YXOUfZQoaCNLAYwKU2lsaG91ZXR0ZZRLAnV1YmF1Lg==
+</properties>
+	</node_properties>
+	<session_state>
+		<window_groups />
+	</session_state>
+</scheme>
